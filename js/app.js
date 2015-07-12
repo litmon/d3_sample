@@ -1,5 +1,5 @@
-var w = 900;
-var h = 900;
+var w = 500;
+var h = 500;
 
 var svg = d3.select("#map-body")
             .append("svg")
@@ -14,20 +14,23 @@ d3.json("../data/japan.topojson", function(json) {
   var projection = d3.geo.mercator()
     .center([137, 34])
     .translate([w/2, h/2])
-    .scale(1500);
+    .scale(900);
 
   // 緯度経度 ⇒ パスデータ変換設定
-  var path = d3.geo.path()
-    .projection(projection);
+  var path = d3.geo.path().projection(projection);
 
   // パスデータとして日本地図描画
   svg.selectAll("path")
     .data(japan)
     .enter()
     .append("path")
-    .attr("d", path)
-    .attr("stroke", "black")
-    .attr("stroke-width", 0.5)
-    .style("fill", function(d, i){ return color(i) });
+    .attr({
+      "d": path,
+      "stroke": "black",
+      "stroke-width": 0.5
+    })
+    .style("fill", function(d, i){
+      return color(i);
+    });
 
 });
