@@ -29,8 +29,8 @@ d3.json("../data/japan.topojson", function(json) {
       "stroke": "black",
       "stroke-width": 0.5
     })
-    .style("fill", function(d, i){
-      return color(i);
+    .style({
+      "fill": function(d, i){ return color(i); },
     }).on({
       'click': function(d, i){
         console.log(d, i);
