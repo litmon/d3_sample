@@ -1,5 +1,5 @@
-var w = 500;
-var h = 500;
+var w = 800;
+var h = 800;
 
 var svg = d3.select("#map-body")
             .append("svg")
