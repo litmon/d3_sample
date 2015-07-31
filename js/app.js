@@ -33,7 +33,6 @@ d3.json("../data/japan.topojson", function(json) {
       "fill": function(d, i){ return color(i); },
     }).on({
       'click': function(d, i){
-        console.log(d, i);
         console.log(d.x, d.y);
       }
     });
